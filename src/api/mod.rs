@@ -6,3 +6,7 @@ pub mod url {
 pub mod domain {
     pub static report: &str = "https://www.virustotal.com/vtapi/v2/domain/report";
 }
+
+pub mod ip {
+    pub static report: &str = "https://www.virustotal.com/vtapi/v2/ip-address/report";
+}

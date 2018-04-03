@@ -8,6 +8,7 @@ use std::collections::HashMap;
 pub mod url;
 pub mod api;
 pub mod domain;
+pub mod ip;
 
 #[derive(Debug,Deserialize)]
 pub struct ScanResponse {
@@ -44,9 +45,15 @@ pub struct ReportResponse {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct Resolutions {
+pub struct DomainResolutions {
     pub last_resolved: String,
     pub ip_address: String
+}
+
+#[derive(Debug,Deserialize)]
+pub struct IpAddressResolutions {
+    pub last_resolved: String,
+    pub hostname: String
 }
 
 #[derive(Debug,Deserialize)]
@@ -61,6 +68,14 @@ pub struct DetectedUrls {
 pub struct DomainResponse {
     pub response_code: u32,
     pub verbose_msg: String,
-    pub resolutions: Vec<Resolutions>,
+    pub resolutions: Vec<DomainResolutions>,
+    pub detected_urls: Vec<DetectedUrls>
+}
+
+#[derive(Debug,Deserialize)]
+pub struct IpAddressResponse {
+    pub response_code: u32,
+    pub verbose_msg: String,
+    pub resolutions: Vec<IpAddressResolutions>,
     pub detected_urls: Vec<DetectedUrls>
 }
