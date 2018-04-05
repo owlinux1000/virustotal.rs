@@ -28,7 +28,7 @@ pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
         .get(&url)
         .send()
         .unwrap();
-
+    
     let text: &str = &resp.text().unwrap();
     from_str(&text).unwrap()
 
