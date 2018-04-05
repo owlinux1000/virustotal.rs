@@ -33,4 +33,3 @@ pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
     from_str(&text).unwrap()
 
 }
-   
