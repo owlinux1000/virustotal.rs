@@ -5,13 +5,13 @@ use super::*;
 pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
     
     let form = reqwest::multipart::Form::new()
+        .text("apikey".to_string(), api_key.to_string())
         .file("file", &filename)
         .expect("Not found");
-
+    
     let mut resp = Client::new()
         .post(api::file::scan)
         .multipart(form)
-        .form(&[("apikey", &api_key)])
         .send()
         .unwrap();
 
@@ -20,5 +20,17 @@ pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
     
 }
 
+pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
+    
+    let params: &str = &format!("?apikey={}&resource={}", &api_key, &resource);
+    let url = [api::file::report, params].join("");
+    let mut resp = Client::new()
+        .get(&url)
+        .send()
+        .unwrap();
 
+    let text: &str = &resp.text().unwrap();
+    from_str(&text).unwrap()
+
+}
    

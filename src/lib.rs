@@ -13,7 +13,7 @@ pub mod file;
 
 #[derive(Debug,Deserialize)]
 pub struct ScanResponse {
-    pub response_code: Option<u32>,
+    pub response_code: Option<i32>,
     pub verbose_msg: Option<String>,
     pub scan_id: Option<String>,
     pub scan_date: Option<String>,
@@ -32,7 +32,7 @@ pub struct FileScan {
 
 #[derive(Debug,Deserialize)]
 pub struct FileScanResponse {
-    pub response_code: u32,
+    pub response_code: i32,
     pub verbose_msg: String,
     pub resource: Option<String>,
     pub scan_id: Option<String>,
@@ -41,8 +41,26 @@ pub struct FileScanResponse {
 }
 
 #[derive(Debug,Deserialize)]
+pub struct FileReportResponse {
+    pub response_code: i32,
+    pub verbose_msg: String,
+    pub resource: Option<String>,
+    pub scan_id: Option<String>,
+    pub scan_date: Option<String>,
+    pub md5: Option<String>,
+    pub sha1: Option<String>,
+    pub sha256: Option<String>,
+    pub url: Option<String>,
+    pub permalink: Option<String>,
+    pub filescan_id: Option<String>,
+    pub positives: Option<u32>,
+    pub total: Option<u32>,
+    pub scans: Option<HashMap<String, FileScan>>
+}
+
+#[derive(Debug,Deserialize)]
 pub struct ReportResponse {
-    pub response_code: u32,
+    pub response_code: i32,
     pub verbose_msg: String,
     pub resource: Option<String>,
     pub scan_id: Option<String>,
@@ -77,7 +95,7 @@ pub struct DetectedUrls {
 
 #[derive(Debug,Deserialize)]
 pub struct DomainResponse {
-    pub response_code: u32,
+    pub response_code: i32,
     pub verbose_msg: String,
     pub resolutions: Vec<DomainResolutions>,
     pub detected_urls: Vec<DetectedUrls>
@@ -85,7 +103,7 @@ pub struct DomainResponse {
 
 #[derive(Debug,Deserialize)]
 pub struct IpAddressResponse {
-    pub response_code: u32,
+    pub response_code: i32,
     pub verbose_msg: String,
     pub resolutions: Vec<IpAddressResolutions>,
     pub detected_urls: Vec<DetectedUrls>
