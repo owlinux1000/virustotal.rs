@@ -18,6 +18,3 @@ fn main() {
     
 }
 ```
-
-## Feature
-
