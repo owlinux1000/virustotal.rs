@@ -9,6 +9,7 @@ pub mod url;
 pub mod api;
 pub mod domain;
 pub mod ip;
+pub mod file;
 
 #[derive(Debug,Deserialize)]
 pub struct ScanResponse {
@@ -27,6 +28,16 @@ pub struct FileScan {
     pub result: Option<String>,
     pub update: Option<String>,
     pub detail: Option<String>
+}
+
+#[derive(Debug,Deserialize)]
+pub struct FileScanResponse {
+    pub response_code: u32,
+    pub verbose_msg: String,
+    pub resource: Option<String>,
+    pub scan_id: Option<String>,
+    pub sha256: Option<String>,
+    pub permalink: Option<String>
 }
 
 #[derive(Debug,Deserialize)]

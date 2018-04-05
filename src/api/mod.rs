@@ -10,3 +10,7 @@ pub mod domain {
 pub mod ip {
     pub static report: &str = "https://www.virustotal.com/vtapi/v2/ip-address/report";
 }
+
+pub mod file {
+    pub static scan: &str = "https://www.virustotal.com/vtapi/v2/file/scan";
+}
