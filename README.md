@@ -1,5 +1,7 @@
 # VirusTotal.rs
 
+[![Build Status](https://travis-ci.org/owlinux1000/virustotal.rs.svg?branch=master)](https://travis-ci.org/owlinux1000/virustotal.rs)
+
 Library for VirusTotal API
 
 ## Example
@@ -18,3 +20,5 @@ fn main() {
     
 }
 ```
+
+
