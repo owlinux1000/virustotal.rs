@@ -7,7 +7,7 @@ Library for VirusTotal API
 ## Implemented Features
 
 |Resource|Description|Permission|
-||||
+|:---|:---|:---|
 |GET /vtapi/v2/file/report|Retrieve file scan reports|public|
 |POST /vtapi/v2/file/scan|Upload and scan a file|public|
 |POST /vtapi/v2/url/scan|Scan an URL|public|
