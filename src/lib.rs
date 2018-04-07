@@ -19,6 +19,20 @@ pub struct PutCommentResponse {
 }
 
 #[derive(Debug,Deserialize)]
+pub struct Comment {
+    pub date: String,
+    pub comment: String
+}
+
+#[derive(Debug,Deserialize)]
+pub struct GetCommentResponse {
+    pub response_code: i32,
+    pub verbose_msg: String,
+    pub resource: String,
+    pub comments: Option<Vector<Comment>>
+}
+
+#[derive(Debug,Deserialize)]
 pub struct ScanResponse {
     pub response_code: Option<i32>,
     pub verbose_msg: Option<String>,
