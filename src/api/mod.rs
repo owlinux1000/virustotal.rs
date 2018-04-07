@@ -15,3 +15,8 @@ pub mod file {
     pub static scan: &str = "https://www.virustotal.com/vtapi/v2/file/scan";
     pub static report: &str = "https://www.virustotal.com/vtapi/v2/file/report";
 }
+
+pub mod comment {
+    pub static put: &str = "https://www.virustotal.com/vtapi/v2/comments/put";
+    pub static get: &str = "https://www.virustotal.com/vtapi/v2/comments/get";
+}
