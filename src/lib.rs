@@ -29,7 +29,7 @@ pub struct GetCommentResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub resource: String,
-    pub comments: Option<Vector<Comment>>
+    pub comments: Vec<Comment>
 }
 
 #[derive(Debug,Deserialize)]
