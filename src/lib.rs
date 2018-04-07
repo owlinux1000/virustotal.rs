@@ -10,6 +10,13 @@ pub mod api;
 pub mod domain;
 pub mod ip;
 pub mod file;
+pub mod comment;
+
+#[derive(Debug,Deserialize)]
+pub struct PutCommentResponse {
+    pub response_code: i32,
+    pub verbose_msg: String
+}
 
 #[derive(Debug,Deserialize)]
 pub struct ScanResponse {
