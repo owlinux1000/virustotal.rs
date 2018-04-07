@@ -4,6 +4,17 @@
 
 Library for VirusTotal API
 
+## Implemented Features
+
+|Resource|Description|Permission|
+|:---:|:---:|:---:|
+|GET /vtapi/v2/file/report|Retrieve file scan reports|public|
+|POST /vtapi/v2/file/scan|Upload and scan a file|public|
+|POST /vtapi/v2/url/scan|Scan an URL|public|
+|GET /vtapi/v2/url/report|Retrieve URL scan reports|public|
+|GET /vtapi/v2/domain/report|Retrieves a domain report|public|
+|GET /vtapi/v2/ip-address/report|Retrieve an IP address report|public|
+
 ## Example
 
 ```
@@ -20,5 +31,4 @@ fn main() {
     
 }
 ```
-
 
