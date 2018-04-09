@@ -33,3 +33,16 @@ pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
     from_str(&text).unwrap()
 
 }
+
+pub fn rescan(api_key: &str, resource: &str) -> FileRescanResponse {
+    
+    let mut resp = Client::new()
+        .post(api::file::rescan)
+        .form(&[("apikey", &api_key), ("resource", &resource)])
+        .send()
+        .unwrap();
+    
+    let text: &str = &resp.text().unwrap();
+    from_str(&text).unwrap()
+
+}
