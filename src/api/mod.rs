@@ -13,6 +13,7 @@ pub mod ip {
 
 pub mod file {
     pub static scan: &str = "https://www.virustotal.com/vtapi/v2/file/scan";
+    pub static rescan: &str = "https://www.virustotal.com/vtapi/v2/file/rescan";
     pub static report: &str = "https://www.virustotal.com/vtapi/v2/file/report";
 }
 
