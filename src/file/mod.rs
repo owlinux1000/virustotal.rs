@@ -2,6 +2,17 @@ use reqwest::Client;
 use serde_json::from_str;
 use super::*;
 
+/// Upload and scan a file
+///
+/// # Example
+/// 
+/// ```
+/// use virustotal::*;
+/// 
+/// let api_key = "Your API key";
+/// let path = "the file path you want to scan";
+/// url::scan(api_key, path);
+/// ```
 pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
     
     let form = reqwest::multipart::Form::new()
@@ -20,6 +31,17 @@ pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
     
 }
 
+/// Retrieve file scan reports
+///
+/// # Example
+/// 
+/// ```
+/// use virustotal::*;
+/// 
+/// let api_key = "Your API key";
+/// let resource = "the resource you want to check";
+/// url::report(api_key, resource);
+/// ```
 pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
     
     let params: &str = &format!("?apikey={}&resource={}", &api_key, &resource);
@@ -34,6 +56,17 @@ pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
 
 }
 
+/// Rescanning already submitted files
+///
+/// # Example
+/// 
+/// ```
+/// use virustotal::*;
+/// 
+/// let api_key = "Your API key";
+/// let resource = "the resource you want to check";
+/// url::report(api_key, resource);
+/// ```
 pub fn rescan(api_key: &str, resource: &str) -> FileRescanResponse {
     
     let mut resp = Client::new()
