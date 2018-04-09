@@ -129,3 +129,13 @@ pub struct IpAddressResponse {
     pub resolutions: Vec<IpAddressResolutions>,
     pub detected_urls: Vec<DetectedUrls>
 }
+
+#[derive(Debug,Deserialize)]
+pub struct FileRescanResponse {
+    pub response_code: i32,
+    pub verbose_msg: String,
+    pub resource: Option<String>,
+    pub scan_id: Option<String>,
+    pub permalink: Option<String>,
+    pub sha256: Option<String>
+}
