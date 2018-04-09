@@ -133,7 +133,7 @@ pub struct IpAddressResponse {
 #[derive(Debug,Deserialize)]
 pub struct FileRescanResponse {
     pub response_code: i32,
-    pub verbose_msg: String,
+    pub verbose_msg: Option<String>,
     pub resource: Option<String>,
     pub scan_id: Option<String>,
     pub permalink: Option<String>,
