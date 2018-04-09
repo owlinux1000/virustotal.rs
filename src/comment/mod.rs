@@ -2,6 +2,18 @@ use reqwest::Client;
 use serde_json::from_str;
 use super::*;
 
+/// Make comments on file and URLs
+///
+/// # Example
+/// 
+/// ```
+/// use virustotal::*;
+/// 
+/// let api_key = "Your API key";
+/// let resource = "the resource you want to put comments";
+/// let comment = "This is a test";
+/// comments::put(api_key, resource, comment);
+/// ```
 pub fn put(api_key: &str, resource: &str, comment: &str) -> PutCommentResponse {
     
     let mut resp = Client::new()
