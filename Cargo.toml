@@ -2,6 +2,11 @@
 name = "virustotal"
 version = "0.1.0"
 authors = ["Chihiro Hasegawa <pgm3rdlinuxor1000@gmail.com>"]
+license = "MIT"
+description = "The library for VirusTotal Public API 2.0"
+repository = "https://github.com/owlinux1000/virustotal.rs"
+readme = "README.md"
+keywords = ["rust", "virustotal"]
 
 [dependencies]
 reqwest = "0.8.5"
