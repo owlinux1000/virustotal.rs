@@ -4,11 +4,16 @@ extern crate serde_json;
 extern crate reqwest;
 
 use std::collections::HashMap;
-    
+
+/// A set of scanning an URL
 pub mod url;
+/// A set of reporting domain
 pub mod domain;
+/// A set of repoting ip
 pub mod ip;
+/// A set of scanning a file
 pub mod file;
+/// A set of putting a comment
 pub mod comment;
 
 #[derive(Debug,Deserialize)]
