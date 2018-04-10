@@ -12,7 +12,7 @@ use super::*;
 /// let api_key = "Your API key";
 /// let resource = "the resource you want to put comments";
 /// let comment = "This is a test";
-/// comments::put(api_key, resource, comment);
+/// comment::put(api_key, resource, comment);
 /// ```
 pub fn put(api_key: &str, resource: &str, comment: &str) -> PutCommentResponse {
     
