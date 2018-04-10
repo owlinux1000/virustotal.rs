@@ -21,7 +21,7 @@ pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
         .expect("Not found");
     
     let mut resp = Client::new()
-        .post(api::file::scan)
+        .post("https://www.virustotal.com/vtapi/v2/file/scan")
         .multipart(form)
         .send()
         .unwrap();
@@ -45,7 +45,7 @@ pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
 pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
     
     let params: &str = &format!("?apikey={}&resource={}", &api_key, &resource);
-    let url = [api::file::report, params].join("");
+    let url = ["https://www.virustotal.com/vtapi/v2/file/report", params].join("");
     let mut resp = Client::new()
         .get(&url)
         .send()
@@ -65,12 +65,12 @@ pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
 /// 
 /// let api_key = "Your API key";
 /// let resource = "the resource you want to check";
-/// url::report(api_key, resource);
+/// file::report(api_key, resource);
 /// ```
 pub fn rescan(api_key: &str, resource: &str) -> FileRescanResponse {
     
     let mut resp = Client::new()
-        .post(api::file::rescan)
+        .post("https://www.virustotal.com/vtapi/v2/file/rescan")
         .form(&[("apikey", &api_key), ("resource", &resource)])
         .send()
         .unwrap();

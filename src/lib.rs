@@ -6,7 +6,6 @@ extern crate reqwest;
 use std::collections::HashMap;
     
 pub mod url;
-pub mod api;
 pub mod domain;
 pub mod ip;
 pub mod file;

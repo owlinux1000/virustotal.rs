@@ -16,7 +16,7 @@ use super::*;
 pub fn report(api_key: &str, ip_address: &str) -> IpAddressResponse {
 
     let params: &str = &format!("?apikey={}&ip={}", &api_key, &ip_address);
-    let url = [api::ip::report, params].join("");
+    let url = ["https://www.virustotal.com/vtapi/v2/ip-address/report", params].join("");
     let mut resp = Client::new()
         .get(&url)
         .send()
