@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Chihiro Hasegawa <pgm3rdlinuxor1000@gmail.com>"]
 
 [dependencies]
-reqwest = "*"
-serde = "*"
-serde_json = "*"
-serde_derive = "*"
+reqwest = "0.8.5"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
