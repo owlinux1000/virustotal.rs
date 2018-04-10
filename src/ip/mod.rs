@@ -2,9 +2,20 @@ use reqwest::Client;
 use serde_json::from_str;
 use super::*;
 
-pub fn report(api_key: &str, domain: &str) -> IpAddressResponse {
+/// Retrieve an IP address report
+///
+/// # Example
+/// 
+/// ```
+/// use virustotal::*;
+/// 
+/// let api_key = "Your API key";
+/// let ip_address = "the IP address you want to check";
+/// ip::report(api_key, domain);
+/// ```
+pub fn report(api_key: &str, ip_address: &str) -> IpAddressResponse {
 
-    let params: &str = &format!("?apikey={}&ip={}", &api_key, &domain);
+    let params: &str = &format!("?apikey={}&ip={}", &api_key, &ip_address);
     let url = [api::ip::report, params].join("");
     let mut resp = Client::new()
         .get(&url)
