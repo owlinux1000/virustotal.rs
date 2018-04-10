@@ -11,7 +11,7 @@ use super::*;
 /// 
 /// let api_key = "Your API key";
 /// let path = "the file path you want to scan";
-/// url::scan(api_key, path);
+/// file::scan(api_key, path);
 /// ```
 pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
     
@@ -40,7 +40,7 @@ pub fn scan(api_key: &str, filename: &str) -> FileScanResponse {
 /// 
 /// let api_key = "Your API key";
 /// let resource = "the resource you want to check";
-/// url::report(api_key, resource);
+/// file::report(api_key, resource);
 /// ```
 pub fn report(api_key: &str, resource: &str) -> FileReportResponse {
     
