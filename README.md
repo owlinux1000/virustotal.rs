@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/owlinux1000/virustotal.rs.svg?branch=master)](https://travis-ci.org/owlinux1000/virustotal.rs)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
+[![Crates](https://img.shields.io/crates/v/virustotal.svg)](https://crates.io/crates/virustotal)
 
 Library for VirusTotal API
 
