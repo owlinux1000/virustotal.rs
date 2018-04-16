@@ -13,7 +13,7 @@ use super::*;
 /// let url = "the URL you want to scan";
 /// url::scan(api_key, url);
 /// ```
-pub fn scan(api_key: &str, url: &str) -> ScanResponse {
+pub fn scan(api_key: &str, url: &str) -> UrlScanResponse {
     
     let mut resp = Client::new()
         .post("https://www.virustotal.com/vtapi/v2/url/scan")
@@ -37,7 +37,7 @@ pub fn scan(api_key: &str, url: &str) -> ScanResponse {
 /// let resource = "the resource you want to check";
 /// url::report(api_key, resource);
 /// ```
-pub fn report(api_key: &str, resource: &str) -> ReportResponse {
+pub fn report(api_key: &str, resource: &str) -> UrlReportResponse {
 
     let params: &str = &format!("?apikey={}&resource={}", &api_key, &resource);
     let url = ["https://www.virustotal.com/vtapi/v2/url/report", params].join("");
@@ -45,7 +45,7 @@ pub fn report(api_key: &str, resource: &str) -> ReportResponse {
         .get(&url)
         .send()
         .unwrap();
-
+    
     let text: &str = &resp.text().unwrap();
     from_str(&text).unwrap()
 }

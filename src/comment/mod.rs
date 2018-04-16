@@ -14,7 +14,7 @@ use super::*;
 /// let comment = "This is a test";
 /// comment::put(api_key, resource, comment);
 /// ```
-pub fn put(api_key: &str, resource: &str, comment: &str) -> PutCommentResponse {
+pub fn put(api_key: &str, resource: &str, comment: &str) -> CommentPutResponse {
     
     let mut resp = Client::new()
         .post("https://www.virustotal.com/vtapi/v2/comments/put")
@@ -27,7 +27,7 @@ pub fn put(api_key: &str, resource: &str, comment: &str) -> PutCommentResponse {
         
 }
 
-pub fn get(api_key: &str, resource: &str) -> GetCommentResponse {
+pub fn get(api_key: &str, resource: &str) -> CommentGetResponse {
 
     let params: &str = &format!("?apikey={}&resource={}", &api_key, &resource);
     let url = ["https://www.virustotal.com/vtapi/v2/comments/get", params].join("");

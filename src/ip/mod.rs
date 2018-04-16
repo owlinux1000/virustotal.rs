@@ -13,7 +13,7 @@ use super::*;
 /// let ip_address = "the IP address you want to check";
 /// ip::report(api_key, domain);
 /// ```
-pub fn report(api_key: &str, ip_address: &str) -> IpAddressResponse {
+pub fn report(api_key: &str, ip_address: &str) -> IpAddressReportResponse {
 
     let params: &str = &format!("?apikey={}&ip={}", &api_key, &ip_address);
     let url = ["https://www.virustotal.com/vtapi/v2/ip-address/report", params].join("");

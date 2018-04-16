@@ -17,7 +17,7 @@ pub mod file;
 pub mod comment;
 
 #[derive(Debug,Deserialize)]
-pub struct PutCommentResponse {
+pub struct CommentPutResponse {
     pub response_code: i32,
     pub verbose_msg: String
 }
@@ -29,7 +29,7 @@ pub struct Comment {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct GetCommentResponse {
+pub struct CommentGetResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub resource: String,
@@ -37,9 +37,9 @@ pub struct GetCommentResponse {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct ScanResponse {
-    pub response_code: Option<i32>,
-    pub verbose_msg: Option<String>,
+pub struct UrlScanResponse {
+    pub response_code: i32,
+    pub verbose_msg: String,
     pub scan_id: Option<String>,
     pub scan_date: Option<String>,
     pub url: Option<String>,
@@ -47,7 +47,22 @@ pub struct ScanResponse {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct FileScan {
+pub struct UrlReportResponse {
+    pub response_code: i32,
+    pub verbose_msg: String,
+    pub resource: Option<String>,
+    pub scan_id: Option<String>,
+    pub scan_date: Option<String>,
+    pub url: Option<String>,
+    pub permalink: Option<String>,
+    pub filescan_id: Option<String>,
+    pub positives: Option<u32>,
+    pub total: Option<u32>,
+    pub scans: Option<HashMap<String, Scan>>
+}
+
+#[derive(Debug,Deserialize)]
+pub struct Scan {
     pub detected: Option<bool>,
     pub version: Option<String>,
     pub result: Option<String>,
@@ -66,6 +81,16 @@ pub struct FileScanResponse {
 }
 
 #[derive(Debug,Deserialize)]
+pub struct FileRescanResponse {
+    pub response_code: i32,
+    //pub verbose_msg: Option<String>,
+    pub resource: Option<String>,
+    pub scan_id: Option<String>,
+    pub permalink: Option<String>,
+    pub sha256: Option<String>
+}
+
+#[derive(Debug,Deserialize)]
 pub struct FileReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
@@ -80,7 +105,7 @@ pub struct FileReportResponse {
     pub filescan_id: Option<String>,
     pub positives: Option<u32>,
     pub total: Option<u32>,
-    pub scans: Option<HashMap<String, FileScan>>
+    pub scans: Option<HashMap<String, Scan>>
 }
 
 #[derive(Debug,Deserialize)]
@@ -95,7 +120,7 @@ pub struct ReportResponse {
     pub filescan_id: Option<String>,
     pub positives: Option<u32>,
     pub total: Option<u32>,
-    pub scans: Option<HashMap<String, FileScan>>
+    pub scans: Option<HashMap<String, Scan>>
 }
 
 #[derive(Debug,Deserialize)]
@@ -119,7 +144,7 @@ pub struct DetectedUrls {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct DomainResponse {
+pub struct DomainReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub resolutions: Vec<DomainResolutions>,
@@ -127,19 +152,10 @@ pub struct DomainResponse {
 }
 
 #[derive(Debug,Deserialize)]
-pub struct IpAddressResponse {
+pub struct IpAddressReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub resolutions: Vec<IpAddressResolutions>,
     pub detected_urls: Vec<DetectedUrls>
 }
 
-#[derive(Debug,Deserialize)]
-pub struct FileRescanResponse {
-    pub response_code: i32,
-    pub verbose_msg: Option<String>,
-    pub resource: Option<String>,
-    pub scan_id: Option<String>,
-    pub permalink: Option<String>,
-    pub sha256: Option<String>
-}
