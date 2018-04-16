@@ -144,11 +144,28 @@ pub struct DetectedUrls {
 }
 
 #[derive(Debug,Deserialize)]
+pub struct ReferrerSample {
+    pub date: Option<String>,
+    pub positives: Option<i32>,
+    pub total: Option<i32>,
+    pub sha256: Option<String>
+}
+
+#[derive(Debug,Deserialize)]
 pub struct DomainReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub resolutions: Vec<DomainResolutions>,
-    pub detected_urls: Vec<DetectedUrls>
+    pub detected_urls: Vec<DetectedUrls>,
+    pub subdomains: Vec<String>,
+    pub categories: Vec<String>,
+    //pub domain_siblings: Vec<String>,
+    pub undetected_referrer_samples: Vec<ReferrerSample>,
+    pub undetected_downloaded_samples: Vec<ReferrerSample>,
+    pub detected_referrer_samples: Vec<ReferrerSample>,
+    pub detected_downloaded_samples: Vec<ReferrerSample>,
+    pub whois_timestamp: i32,
+    pub whois: Option<String>
 }
 
 #[derive(Debug,Deserialize)]
