@@ -172,7 +172,11 @@ pub struct DomainReportResponse {
 pub struct IpAddressReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
+    pub country: Option<String>,
+    pub asn: Option<String>,
+    pub detected_downloaded_samples: Vec<ReferrerSample>,
+    pub undetected_downloaded_samples: Vec<ReferrerSample>,
     pub resolutions: Vec<IpAddressResolutions>,
-    pub detected_urls: Vec<DetectedUrls>
-}
+    pub detected_urls: Vec<DetectedUrls>,
+ }
 
