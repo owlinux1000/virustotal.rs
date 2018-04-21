@@ -36,3 +36,6 @@ fn main() {
 }
 ```
 
+## Acknowledgements
+
+* [Thanks virustotal.com for posting](https://support.virustotal.com/hc/en-us/articles/115002146469-API-Scripts)
