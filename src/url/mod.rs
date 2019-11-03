@@ -14,11 +14,11 @@ impl <'a>VtClient<'a> {
     /// let url = "https://example.com";
     /// vt.scan_url(url);
     /// ```
-    pub fn scan_url(self, url: &str) -> UrlScanResponse {
+    pub fn scan_url(self, target_url: &str) -> UrlScanResponse {
         let url = &[self.endpoint, "/url/scan"].join("");
         let mut resp = Client::new()
             .post(url)
-            .form(&[("apikey", self.api_key), ("url", &url)])
+            .form(&[("apikey", self.api_key), ("url", target_url)])
             .send()
             .unwrap();
         let text: &str = &resp.text().unwrap();
