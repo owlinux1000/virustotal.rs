@@ -2,26 +2,27 @@ use reqwest::Client;
 use serde_json::from_str;
 use super::*;
 
-/// Retrieves a domain report 
-///
-/// # Example
-/// 
-/// ```
-/// use virustotal::*;
-/// 
-/// let api_key = "Your API key";
-/// let domain = "the domain you want to check";
-/// domain::report(api_key, domain);
-/// ```
-pub fn report(api_key: &str, domain: &str) -> DomainReportResponse {
-
-    let params: &str = &format!("?apikey={}&domain={}", &api_key, &domain);
-    let url = ["https://www.virustotal.com/vtapi/v2/domain/report", params].join("");
-    let mut resp = Client::new()
-        .get(&url)
-        .send()
-        .unwrap();
-
-    let text: &str = &resp.text().unwrap();
-    from_str(&text).unwrap()
+impl <'a>VtClient<'a> {
+    /// Retrieves a domain report 
+    ///
+    /// # Example
+    /// 
+    /// ```
+    /// use virustotal::*;
+    /// 
+    /// let vt = VtClient::new("Your API Key");
+    /// vt.repot_domain("alicemacs.com") # This is my domain :P
+    /// ```
+    pub fn repot_domain(self, domain: &'a str) -> DomainReportResponse {
+        let params: &str = &format!(
+            "?apikey={}&domain={}", self.api_key, &domain
+        );
+        let url = [ENDPOINT_V2, "/domain/report", params].join("");
+        let mut resp = Client::new()
+            .get(&url)
+            .send()
+            .unwrap();
+        let text = resp.text().unwrap();
+        from_str(&text).unwrap()
+    }
 }
