@@ -4,10 +4,6 @@ extern crate serde_json;
 extern crate reqwest;
 
 use std::collections::HashMap;
-use reqwest::Client;
-use serde_json::from_str;
-
-const ENDPOINT_V2: &str = "https://www.virustotal.com/vtapi/v2";
 
 /// A set of scanning an URL
 pub mod url;
