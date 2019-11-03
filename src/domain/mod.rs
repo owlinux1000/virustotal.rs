@@ -1,6 +1,6 @@
 use reqwest::Client;
 use serde_json::from_str;
-use super::*;
+use super::{VtClient, DomainReportResponse};
 
 impl <'a>VtClient<'a> {
     /// Retrieves a domain report 
@@ -17,7 +17,7 @@ impl <'a>VtClient<'a> {
         let params: &str = &format!(
             "?apikey={}&domain={}", self.api_key, &domain
         );
-        let url = [ENDPOINT_V2, "/domain/report", params].join("");
+        let url = [self.endpoint, "/domain/report", params].join("");
         let mut resp = Client::new()
             .get(&url)
             .send()
