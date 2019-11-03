@@ -1,6 +1,6 @@
 [package]
 name = "virustotal"
-version = "0.1.2"
+version = "2.0.0"
 authors = ["Chihiro Hasegawa <encry1024@gmail.com>"]
 license = "MIT"
 description = "The library for VirusTotal Public API 2.0"
