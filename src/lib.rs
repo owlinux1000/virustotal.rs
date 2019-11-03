@@ -4,6 +4,10 @@ extern crate serde_json;
 extern crate reqwest;
 
 use std::collections::HashMap;
+use reqwest::Client;
+use serde_json::from_str;
+
+const ENDPOINT_V2: &str = "https://www.virustotal.com/vtapi/v2";
 
 /// A set of scanning an URL
 pub mod url;
@@ -160,10 +164,10 @@ pub struct DomainReportResponse {
     pub subdomains: Vec<String>,
     pub categories: Vec<String>,
     //pub domain_siblings: Vec<String>,
-    pub undetected_referrer_samples: Vec<ReferrerSample>,
-    pub undetected_downloaded_samples: Vec<ReferrerSample>,
-    pub detected_referrer_samples: Vec<ReferrerSample>,
-    pub detected_downloaded_samples: Vec<ReferrerSample>,
+    pub undetected_referrer_samples: Option<Vec<ReferrerSample>>,
+    pub undetected_downloaded_samples: Option<Vec<ReferrerSample>>,
+    pub detected_referrer_samples: Option<Vec<ReferrerSample>>,
+    pub detected_downloaded_samples: Option<Vec<ReferrerSample>>,
     pub whois_timestamp: i32,
     pub whois: Option<String>
 }
@@ -173,10 +177,19 @@ pub struct IpAddressReportResponse {
     pub response_code: i32,
     pub verbose_msg: String,
     pub country: Option<String>,
-    pub asn: Option<String>,
-    pub detected_downloaded_samples: Vec<ReferrerSample>,
-    pub undetected_downloaded_samples: Vec<ReferrerSample>,
+    pub asn: Option<u64>,
+    pub detected_downloaded_samples: Option<Vec<ReferrerSample>>,
+    pub undetected_downloaded_samples: Option<Vec<ReferrerSample>>,
     pub resolutions: Vec<IpAddressResolutions>,
     pub detected_urls: Vec<DetectedUrls>,
- }
+}
 
+pub struct VtClient<'a> {
+    api_key: &'a str,
+    endpoint: &'a str
+}
+impl <'a>VtClient<'a> {
+    pub fn new(api_key: &'a str, endpoint: &'a str) -> VtClient<'a> {
+        VtClient{api_key: api_key, endpoint: endpoint}
+    }
+}
