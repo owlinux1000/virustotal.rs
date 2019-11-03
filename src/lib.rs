@@ -185,7 +185,7 @@ pub struct VtClient<'a> {
     endpoint: &'a str
 }
 impl <'a>VtClient<'a> {
-    pub fn new(api_key: &'a str, endpoint: &'a str) -> VtClient<'a> {
-        VtClient{api_key: api_key, endpoint: endpoint}
+    pub fn new(api_key: &'a str) -> VtClient<'a> {
+        VtClient{api_key: api_key, endpoint: "https://www.virustotal.com/vtapi/v2"}
     }
 }
