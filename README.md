@@ -22,7 +22,7 @@ Library for VirusTotal APIv2
 
 ## Example
 
-```
+```rust
 extern crate virustotal;
 
 use virustotal::*;
