@@ -180,12 +180,13 @@ pub struct IpAddressReportResponse {
     pub detected_urls: Vec<DetectedUrls>,
 }
 
+#[derive(Copy, Clone)]
 pub struct VtClient<'a> {
     api_key: &'a str,
     endpoint: &'a str
 }
 impl <'a>VtClient<'a> {
-    pub fn new(api_key: &'a str) -> VtClient<'a> {
+    pub fn new(api_key: &'a str) -> Self {
         VtClient{api_key: api_key, endpoint: "https://www.virustotal.com/vtapi/v2"}
     }
 }
